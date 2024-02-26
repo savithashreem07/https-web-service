@@ -17,3 +17,6 @@ Screenshot to get '/https-web-service/v1/colors' endpoint
 
 Screenshot of POSTMAN for '/https-web-service/v1/colors'
 ![output-postman](https://github.com/savithashreem07/https-web-service/assets/157434708/c8073b22-4411-4355-bab7-39628f42f681)
+
+
+If there is an error loading these images, refer https://github.com/savithashreem07/https-web-service/tree/main/screenshots 
