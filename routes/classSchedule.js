@@ -1,6 +1,10 @@
-const express= require('express')
-const data = require('../database/class-schedule.json')
-const fs = require('fs')
+// const express= require('express')
+import express from 'express'
+// import data from '../database/class-schedule.json'
+// const data = require('../database/class-schedule.json')
+import data from '../database/class-schedule.json' assert {type: 'json'}
+// const fs = require('fs')
+import fs from 'fs'
 
 const classSchedule = express.Router()
 
@@ -60,5 +64,6 @@ classSchedule.put('/update/:course', (req, res) => {
     }
 })
 
-module.exports = classSchedule
+export default classSchedule
+// module.exports = classSchedule
 

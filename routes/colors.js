@@ -1,5 +1,5 @@
-const express= require('express')
-const data = require('../database/colors.json')
+import express from 'express'
+import data from '../database/colors.json' assert { type: "json" };
 
 const colors = express.Router()
 
@@ -8,5 +8,5 @@ colors.get('/colors', (req, res) => {
     res.json(data)
 })
 
-module.exports = colors
+export default colors
 

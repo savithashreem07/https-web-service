@@ -1,4 +1,5 @@
-const express= require('express')
+// const express= require('express')
+import express from 'express'
 
 const startup = express.Router()
 startup.get('/',(req, res) => {
@@ -11,5 +12,6 @@ startup.get('/alive', (req, res)=> {
 
 // commonJS format
 
-module.exports = startup
+export default startup
+// module.exports = startup
 

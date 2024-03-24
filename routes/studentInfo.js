@@ -1,5 +1,7 @@
-const express= require('express')
-const data = require('../database/student-info.json')
+// const express= require('express')
+import express from 'express'
+// const data = require('../database/student-info.json')
+import data from '../database/student-info.json'  assert {type: 'json'}
 
 const studentInfo = express.Router()
 
@@ -82,5 +84,6 @@ studentInfo.post('/same-course-student-info/', (req, res) => {
 })
 
 
-module.exports = studentInfo
+export default studentInfo
+// module.exports = studentInfo
 
