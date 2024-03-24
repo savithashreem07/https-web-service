@@ -4,8 +4,6 @@ import { getZipCode } from '../controller/getZipCode.js'
 
 const location = express.Router()
 
-const API_KEY = '4E64AC259B2A701D96F149DC3AEBB317'
-
 location.get('/user-location', async(req, res) => {
     // console.log(req)
     
