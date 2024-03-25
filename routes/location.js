@@ -1,13 +1,14 @@
-// const express= require('express')
 import express from 'express'
 import { getZipCode } from '../controller/getZipCode.js'
+import { getLoggerInstance } from '../logger.js'
 
 const location = express.Router()
 
-const API_KEY = '4E64AC259B2A701D96F149DC3AEBB317'
+const logger = getLoggerInstance()
 
 location.get('/user-location', async(req, res) => {
-    // console.log(req)
+
+    logger.info('Entering location API')
     
     const userIp = req.headers['x-forwarded-for'] || req.socket.remoteAddress
     const userInformation = await getZipCode(userIp)
@@ -15,9 +16,9 @@ location.get('/user-location', async(req, res) => {
 
     console.log(userInformation,  'userInformation')
     res.send({userIp: userIp, userDevice: userDevice, userInformation: userInformation})
+
+    logger.info('Exiting location API')
 })
 
 
 export default location
-// module.exports = location
-

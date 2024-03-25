@@ -1,24 +1,15 @@
-// const express = require('express')
 import express from 'express'
 import https from 'https'
 import fs from 'fs'
 import cors from 'cors'
-// const https = require('https')
-// const fs =require('fs')
-// const cors = require('cors')
 
-// const config = require('./config')
-import { privateKeyPassphrase } from './config.js'
-// const startup = require('./routes/startup')
+import { privateKeyPassphrase } from './settings.js'
+import { getLoggerInstance } from './logger.js'
 import startup from './routes/startup.js'
-// const colors = require('./routes/colors')
-import colors from './routes/colors.js'
-// const classSchedule = require('./routes/classSchedule')
-import classSchedule from './routes/classSchedule.js'
-// const location = require('./routes/location')
 import location from './routes/location.js'
-// const studentInfo = require('./routes/studentInfo')
-import studentInfo from './routes/studentInfo.js'
+import studentInfoUpstream from './routes/studentInfoUpstream.js'
+
+const logger = getLoggerInstance()
 
 const app = express()
 
@@ -33,12 +24,10 @@ const server = https.createServer(httpsOptions,app)
 app.use(cors())
 app.use(express.json())
 app.use('/https-web-service/v1', startup)
-app.use('/https-web-service/v1', colors)
-app.use('/https-web-service/v1', classSchedule)
 app.use('/https-web-service/v1', location)
-app.use('/https-web-service/v1', studentInfo)
+app.use('/https-web-service/v1', studentInfoUpstream)
 
 server.listen(8080, ()=> {
-    console.log('Server is up')
+    logger.info('Server is up')
 })
 
